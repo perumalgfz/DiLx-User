@@ -1,0 +1,31 @@
+{
+  "name": "dilx-user",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "perumal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^9.0.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.11.1",
+    "generate-password": "^1.6.0",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

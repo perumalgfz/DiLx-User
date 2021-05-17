@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DiLX User</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body class="container">   
+
+    <div class="card"> 
+        <div class="card-header">
+            <h4 class="card-title">User List</h4>
+            <ul class="nav nav-pills w-100">
+                <li class="nav-pill ml-auto">
+                    <a class="nav-link active" href="/add">Add User</a>
+                    
+                </li>
+                <li class="nav-pill ml-auto">
+                    <a class="nav-link active" href="/logout"> Logout</a>
+                </li>
+            </ul>
+        </div>
+    <div class="card-body">
+        
+        <% if(data.length) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="65px">   #<a href="../user/idA"> &uparrow; </a>  
+                        <a href="../user/idD"> &downarrow; </a></th>
+                    <th width="150px" scope="col">First Name<a href="../user/fnameA">&uparrow;</a>
+                        <a href="../user/fnameD">&downarrow;</a></th>
+                    <th width="150px"scope="col">Last Name <a href="../user/lnameA">&uparrow;</a>
+                        <a href="../user/lnameD">&downarrow;</a></th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Hobby</th>
+                    <th width="150px" scope="col">Genter <a href="../user/gA">&uparrow;</a> <a href="../user/gD">&downarrow;</a></th>
+                    <th scope="col">City</th>
+                    <th width="90px">Status <a href="../user/sA">&uparrow;</a>
+                        <a href="../user/sD">&downarrow;</a></th>
+                    <th width="140px">Action </th>
+                </tr>
+            </thead>
+            <tbody>
+            <% for(var i = 0; i< data.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= (i+1) %></th>
+                    <td><%= data[i].firstname%></td>
+                    <td><%= data[i].lastname%></td>
+                    <td><%= data[i].email%></td>
+                    <td><%= data[i].hobby%></td>
+                    <td><% if(data[i].gender == 'male'){ %> Male <% } else{ %> Female <% } %> </td>
+                    <td><%= data[i].city%></td>
+                    <td><% if (data[i].status == 0){ %> 
+                        Inactive
+                        <% } else { %>
+                            Active
+                        <% } %>
+                        </td>
+                    <td>
+                        <a class="btn btn-sm btn-success edit" href="../edit/<%=data[i].id%>">Edit</a>                       
+                        <a class="btn btn-sm btn-danger delete" onclick="return alert('Are You sure?')" href="../user/delete/<%=data[i].id%>">Delete</a>                       
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <% } %>
+        
+        <!-- if result is empty -->
+        <% if(!data.length) { %>
+            <p class="text-center">No User found!</p>
+        <% } %>
+
+        </div>
+    </div>
+
+</body>
+</html>
